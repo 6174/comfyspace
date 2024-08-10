@@ -109,6 +109,19 @@
                     width: var(--icon-size);
                 }
             }
+            .node-description-icon {
+                position: absolute;
+                right: 0;
+                top: 9px;
+                display: flex;
+                align-items: center;
+                padding: 0 8px;
+                cursor: pointer;
+                transition: var(--transition);
+                &:hover {
+                    background-color: var(--backgroundColorL2);
+                }
+            }
             .progress-bar {
                 position: absolute;
                 width: 100%;
@@ -593,6 +606,24 @@
             }
             &-right {
                 right: 3px;
+            }
+        }
+    }
+}
+
+.nodeDescriptionPopover {
+    max-width: 300px;
+    max-height: 400px;
+    overflow: auto;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #191A1F;
+    :global {
+        ul, ol {
+            list-style: initial;
+            padding-left: 18px;
+            li {
+                margin-bottom: 10px;
             }
         }
     }
