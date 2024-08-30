@@ -173,7 +173,7 @@ function InputComponent({
 					autoSize
 					className='nopan nodrag'
 					placeholder={name}
-					style={{ minHeight: 128, width: '100%', marginBottom: 10 }}
+					style={{ minHeight: 128, width: '100%', marginBottom: 10, maxHeight: 600 }}
 					value={value}
 					onChange={(ev) => onChange(ev.target.value)}
 				/>

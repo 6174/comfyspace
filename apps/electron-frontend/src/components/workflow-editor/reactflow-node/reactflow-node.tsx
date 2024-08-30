@@ -98,6 +98,7 @@ export const NodeComponent = memo(({
               {isNegative && <span>{"("}Negative{")"}</span>}
               <NodeError nodeError={nodeError} />
             </h2>
+            {widget.description && <NodeDescription description={widget.description} />}
 
             {isInProgress ?
               <div className="progress-bar">
@@ -149,6 +150,27 @@ export const NodeComponent = memo(({
   )
 });
 
+import Markdown from 'react-markdown'
+import { Popover } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
+
+function NodeDescription({ description }: { description: string }) {
+  return (
+    <Popover
+      trigger={"hover"}
+      placement='right'
+      content={(
+        <div className={nodeStyles.nodeDescriptionPopover}>
+          <Markdown>{description}</Markdown>
+        </div>
+      )}
+    >
+      <div className='node-description-icon'>
+        <InfoCircleOutlined />
+      </div>
+    </Popover>
+  )
+}
 
 export function getTransformStyle(transformScale: number) {
   const transform = Math.max(1, 1 / transformScale);

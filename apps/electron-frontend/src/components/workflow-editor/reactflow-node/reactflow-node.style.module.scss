@@ -38,7 +38,7 @@
     }
 
     :global {
-         .node-inner {
+        .node-inner {
             height: 100%;
             overflow: hidden;
             margin-left: -1px;
@@ -109,6 +109,19 @@
                     width: var(--icon-size);
                 }
             }
+            .node-description-icon {
+                position: absolute;
+                right: 0;
+                top: 9px;
+                display: flex;
+                align-items: center;
+                padding: 0 8px;
+                cursor: pointer;
+                transition: var(--transition);
+                &:hover {
+                    // background-color: transparent !important;
+                }
+            }
             .progress-bar {
                 position: absolute;
                 width: 100%;
@@ -168,6 +181,64 @@
                     .node-slot-name {
                         width: 100%;
                         text-align: right;
+                    }
+                }
+
+                .react-flow__handle {
+                    position: absolute;
+                    pointer-events: none;
+                    min-width: 5px;
+                    min-height: 5px;
+                    width: 22px;
+                    height: 22px;
+                    background: transparent;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: var(--transition);
+                    .handle-visible {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 100%;
+                        pointer-events: none;
+                        transition: var(--transition);
+                    }
+                }
+
+                .react-flow__handle.connectionindicator {
+                    pointer-events: all;
+                    cursor: crosshair;
+                }
+
+                .react-flow__handle-left {
+                    top: 0;
+                    left: -2px;
+                    transform: translate(0, -50%);
+                }
+                
+                .react-flow__handle-right {
+                    right: -2px;
+                    top: 0;
+                    transform: translate(0, -50%);
+                }
+
+                &.scaled {
+                    &.node-slot-left .connectionindicator {
+                        transform-origin: 10% 50%;
+                    }
+    
+                    &.node-slot-right .connectionindicator {
+                        transform-origin: 90% 50%;
+                    }
+                    font-size: 0.8em;
+                    line-height: 12px;
+                    .react-flow__handle {
+                        border-radius: 22px;
+                        .handle-visible {
+                            transform: scale(2);
+                            border-radius: 100%;
+                            pointer-events: none;
+                        }
                     }
                 }
             }
@@ -369,6 +440,10 @@
                     border-radius: 4px;
                 }
             }
+
+            .text-preview-card {
+                padding: 4px;
+            }
             
             &.single {
                 .ant-image {
@@ -531,6 +606,24 @@
             }
             &-right {
                 right: 3px;
+            }
+        }
+    }
+}
+
+.nodeDescriptionPopover {
+    max-width: 300px;
+    max-height: 400px;
+    overflow: auto;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #191A1F;
+    :global {
+        ul, ol {
+            list-style: initial;
+            padding-left: 18px;
+            li {
+                margin-bottom: 10px;
             }
         }
     }
