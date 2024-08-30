@@ -119,7 +119,7 @@
                 cursor: pointer;
                 transition: var(--transition);
                 &:hover {
-                    background-color: var(--backgroundColorL2);
+                    // background-color: transparent !important;
                 }
             }
             .progress-bar {
