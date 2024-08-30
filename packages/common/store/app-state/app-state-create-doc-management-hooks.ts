@@ -38,7 +38,7 @@ export default function createHook(set: AppStateSetter, get: AppStateGetter): Pa
       const st = get();
       throttledUpdateDocument({
         // ...st.persistedWorkflow!,
-        id: st.persistedWorkflow!,
+        id: st.persistedWorkflow!.id,
         ...updates,
         last_edit_time,
       });
